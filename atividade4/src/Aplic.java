@@ -21,16 +21,17 @@ public class Aplic {
         
         System.out.println("");
         
-        System.out.println("Digite o peso: ");
-        pesCli.setPeso(entrada.nextDouble());
+        
         System.out.println("Digite a altura: ");
         pesCli.setAltura(entrada.nextDouble());
+        System.out.println("Digite o peso: ");
+        pesCli.setPeso(entrada.nextDouble());
         
         System.out.println("CPF: " + pesCli.getCpf());
         System.out.println("Nome: " + pesCli.getNome());
         System.out.println("Telefone: " + pesCli.getTelefone());
         System.out.println("Altura: " + pesCli.getAltura() + "m");
-        System.out.println("Peso: " + pesCli.getPeso() + "k");
+        System.out.println("Peso: " + pesCli.getPeso() + "kg");
     }
     
 }
