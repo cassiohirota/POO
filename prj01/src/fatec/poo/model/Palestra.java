@@ -10,6 +10,7 @@ package fatec.poo.model;
     private String local;
     private double valor;
     private double totalArrecadado;
+    private Palestrante palestrante;
     
     public Palestra(String data, String tema) {
         this.data = data;
@@ -43,19 +44,28 @@ package fatec.poo.model;
     public double getTotalArrecadado() {
         return totalArrecadado;
     }
+
+    public Palestrante getPalestrante() {
+        return palestrante;
+    }
+
+    public void setPalestrante(Palestrante palestrante) {
+        this.palestrante = palestrante;
+    }
     
     
-//    public void emitirListaParticipantes(){
-//        System.out.println("Relação de Palestras Dadas");
-//        System.out.println("");
-//        System.out.println("CPF: " + getCpf());
-//        System.out.println("Nome: " + getNome());
-//        System.out.println("Área de Atuação: " + getAreaAtuacao());
-//        System.out.println("Taxa de Cobrança(%): " + taxaCobranca);
-//        System.out.println("");
-//
-//        System.out.println("Data Palestra       Tema        Valor Recebido");        
-//    }
+    public void emitirListaParticipantes(){
+        System.out.println("Relação de Palestras Dadas");
+        System.out.println("");
+        System.out.println("CPF: " + getPalestrante().getCpf());
+        System.out.println("Nome: " + getPalestrante().getNome());
+        System.out.println("Área de Atuação: " + getPalestrante().getAreaAtuacao());
+        System.out.println("Taxa de Cobrança(%): " + getPalestrante().getTaxaCobranca());
+        System.out.println("");
+
+        System.out.println("Data Palestra       Tema        Valor Recebido");
+        System.out.println(data + "  " + tema + "  " + totalArrecadado);
+    }
 
 
 }

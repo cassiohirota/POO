@@ -18,6 +18,7 @@ public class Aplic {
         palestra.setLocal("Auditório Carlos Penha");
         palestra.setValor(600);
         palestrante.setPalestra(palestra);
+        palestra.setPalestrante(palestrante);
 
 
         
@@ -31,7 +32,7 @@ public class Aplic {
 
         palestrante.listarPalestras();
         
-        //palestra.emitirListaParticipantes();
+        palestra.emitirListaParticipantes();
     }
     
 }
