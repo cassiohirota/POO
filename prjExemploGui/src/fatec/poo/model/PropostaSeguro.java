@@ -39,8 +39,12 @@ public class PropostaSeguro {
         return nome;
     }
 
+    public double getValorBase() {
+        return valorBase;
+    }
+
     public double calcDescSexo(){
-        if (sexo == false){//feminino
+        if (!sexo){//feminino
             return(valorBase *  0.075);
         }else{
             return(0);

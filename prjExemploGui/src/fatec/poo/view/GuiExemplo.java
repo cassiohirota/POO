@@ -1,5 +1,7 @@
 package fatec.poo.view;
 
+import fatec.poo.model.PropostaSeguro;
+
 /**
  *
  * @author 0030482021033
@@ -188,6 +190,11 @@ public class GuiExemplo extends javax.swing.JFrame {
 
         btnMontar.setText("Montar");
         btnMontar.setPreferredSize(new java.awt.Dimension(71, 23));
+        btnMontar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMontarActionPerformed(evt);
+            }
+        });
 
         btnCalcular.setText("Calcular");
         btnCalcular.setEnabled(false);
@@ -284,12 +291,32 @@ public class GuiExemplo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        // TODO add your handling code here:
+        lblDescSexo.setText(String.valueOf(objPropSeg.calcDescSexo()));
+        lblDescIdade.setText(String.valueOf(objPropSeg.calcDescIdade()));
+        lblDescPerfil.setText(String.valueOf(objPropSeg.calcDescPerfilCidade() + objPropSeg.calcDescPerfilMotorista()));
+        lblDescBase.setText(String.valueOf(objPropSeg.getValorBase()));
+        lblValSeguro.setText(String.valueOf(objPropSeg.calcSeguro()));
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnMontarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMontarActionPerformed
+        objPropSeg = new PropostaSeguro(txtNome.getText(), Double.parseDouble(txtValorCarro.getText()));
+        if(rbtMasculino.isSelected())
+            objPropSeg.setSexo(true); //Masculino
+        else
+            objPropSeg.setSexo(false);
+        
+        objPropSeg.setFaixaIdade(cbxFaixa.getSelectedIndex());
+        objPropSeg.setPerfilMotorista(chkMotorista.isSelected());
+        objPropSeg.setPerfilCidade(chkCidade.isSelected());    
+        
+        //Ajustar a Gui
+        btnMontar.setEnabled(false);
+        btnCalcular.setEnabled(true);
+    }//GEN-LAST:event_btnMontarActionPerformed
 
 
     public static void main(String args[]) {
@@ -331,4 +358,5 @@ public class GuiExemplo extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtValorCarro;
     // End of variables declaration//GEN-END:variables
+    private PropostaSeguro objPropSeg;
 }
