@@ -24,7 +24,7 @@ public class GuiExemplo extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         txtValorCarro = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cbxFaixa = new javax.swing.JComboBox<>();
+        cbxFaixaIdade = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         rbtFeminino = new javax.swing.JRadioButton();
         rbtMasculino = new javax.swing.JRadioButton();
@@ -37,7 +37,7 @@ public class GuiExemplo extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        lblDescBase = new javax.swing.JLabel();
+        lblValBase = new javax.swing.JLabel();
         lblDescSexo = new javax.swing.JLabel();
         lblDescIdade = new javax.swing.JLabel();
         lblDescPerfil = new javax.swing.JLabel();
@@ -60,7 +60,7 @@ public class GuiExemplo extends javax.swing.JFrame {
 
         jLabel3.setText("Faixa de Idade:");
 
-        cbxFaixa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "de 26 a 35 anos", "acima de 35 anos" }));
+        cbxFaixaIdade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "de 26 a 35 anos", "acima de 35 anos" }));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
         jPanel1.setPreferredSize(new java.awt.Dimension(202, 62));
@@ -131,7 +131,7 @@ public class GuiExemplo extends javax.swing.JFrame {
 
         jLabel8.setText("Valor Seguro");
 
-        lblDescBase.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        lblValBase.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         lblDescSexo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
@@ -155,7 +155,7 @@ public class GuiExemplo extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDescBase, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                    .addComponent(lblValBase, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                     .addComponent(lblDescSexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblDescIdade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblDescPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -168,7 +168,7 @@ public class GuiExemplo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(lblDescBase, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblValBase, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDescSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,6 +209,11 @@ public class GuiExemplo extends javax.swing.JFrame {
         btnLimpar.setMaximumSize(new java.awt.Dimension(71, 23));
         btnLimpar.setMinimumSize(new java.awt.Dimension(71, 23));
         btnLimpar.setPreferredSize(new java.awt.Dimension(71, 23));
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         btnSair.setText("Sair");
         btnSair.setPreferredSize(new java.awt.Dimension(71, 23));
@@ -228,7 +233,7 @@ public class GuiExemplo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxFaixa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cbxFaixaIdade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -273,7 +278,7 @@ public class GuiExemplo extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(cbxFaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbxFaixaIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -288,14 +293,17 @@ public class GuiExemplo extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         lblDescSexo.setText(String.valueOf(objPropSeg.calcDescSexo()));
         lblDescIdade.setText(String.valueOf(objPropSeg.calcDescIdade()));
         lblDescPerfil.setText(String.valueOf(objPropSeg.calcDescPerfilCidade() + objPropSeg.calcDescPerfilMotorista()));
-        lblDescBase.setText(String.valueOf(objPropSeg.getValorBase()));
+        lblValBase.setText(String.valueOf(objPropSeg.getValorBase()));
         lblValSeguro.setText(String.valueOf(objPropSeg.calcSeguro()));
+        
+        btnCalcular.setEnabled(false);
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -309,14 +317,33 @@ public class GuiExemplo extends javax.swing.JFrame {
         else
             objPropSeg.setSexo(false);
         
-        objPropSeg.setFaixaIdade(cbxFaixa.getSelectedIndex());
+        objPropSeg.setFaixaIdade(cbxFaixaIdade.getSelectedIndex());
         objPropSeg.setPerfilMotorista(chkMotorista.isSelected());
         objPropSeg.setPerfilCidade(chkCidade.isSelected());    
         
         //Ajustar a Gui
         btnMontar.setEnabled(false);
         btnCalcular.setEnabled(true);
+        btnLimpar.setEnabled(true);
     }//GEN-LAST:event_btnMontarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        txtNome.setText(null);
+        txtValorCarro.setText(null);
+        rbtMasculino.setSelected(true);
+        cbxFaixaIdade.setSelectedIndex(0);
+        chkCidade.setSelected(false);
+        chkMotorista.setSelected(false);
+        lblValBase.setText(null);
+        lblDescIdade.setText(null);
+        lblDescPerfil.setText(null);
+        lblDescSexo.setText(null);
+        lblValSeguro.setText(null);
+        
+        btnLimpar.setEnabled(false);
+        btnMontar.setEnabled(true);
+        txtNome.requestFocus();
+    }//GEN-LAST:event_btnLimparActionPerformed
 
 
     public static void main(String args[]) {
@@ -334,7 +361,7 @@ public class GuiExemplo extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnMontar;
     private javax.swing.JButton btnSair;
-    private javax.swing.JComboBox<String> cbxFaixa;
+    private javax.swing.JComboBox<String> cbxFaixaIdade;
     private javax.swing.JCheckBox chkCidade;
     private javax.swing.JCheckBox chkMotorista;
     private javax.swing.JLabel jLabel1;
@@ -348,10 +375,10 @@ public class GuiExemplo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lblDescBase;
     private javax.swing.JLabel lblDescIdade;
     private javax.swing.JLabel lblDescPerfil;
     private javax.swing.JLabel lblDescSexo;
+    private javax.swing.JLabel lblValBase;
     private javax.swing.JLabel lblValSeguro;
     private javax.swing.JRadioButton rbtFeminino;
     private javax.swing.JRadioButton rbtMasculino;

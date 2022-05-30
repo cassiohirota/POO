@@ -15,7 +15,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -38,7 +38,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbxFaixa" max="32767" attributes="0"/>
+                      <Component id="cbxFaixaIdade" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -95,7 +95,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbxFaixa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbxFaixaIdade" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -139,7 +139,7 @@
         <Property name="text" type="java.lang.String" value="Faixa de Idade:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbxFaixa">
+    <Component class="javax.swing.JComboBox" name="cbxFaixaIdade">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
@@ -278,7 +278,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblDescBase" pref="111" max="32767" attributes="0"/>
+                      <Component id="lblValBase" pref="111" max="32767" attributes="0"/>
                       <Component id="lblDescSexo" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblDescIdade" max="32767" attributes="0"/>
                       <Component id="lblDescPerfil" max="32767" attributes="0"/>
@@ -294,7 +294,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblDescBase" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="lblValBase" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -347,7 +347,7 @@
             <Property name="text" type="java.lang.String" value="Valor Seguro"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDescBase">
+        <Component class="javax.swing.JLabel" name="lblValBase">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -428,6 +428,9 @@
           <Dimension value="[71, 23]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSair">
       <Properties>
